@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import controlador.GestorEventos;
 
@@ -17,7 +18,8 @@ public class VentanaPrincipal extends JFrame {
 	
 	private JLabel fondo;
 	private JTextField cajaNum1, cajaNum2, cajaResultado;
-	private JButton botonSumar, botonRestar, botonMultipli, botonDividir, botonRaiz2, botonRaiz3;
+	private JButton botonSumar, botonRestar, botonMultipli, botonDividir,
+					botonRaiz2, botonRaiz3, botonOff, botonOn;
    
 
   
@@ -25,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(810, 530);
+		setSize(830, 570);
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setTitle("Calculadora");
@@ -37,12 +39,20 @@ public class VentanaPrincipal extends JFrame {
 
 	public void establecerGestor (GestorEventos gestor) {
 		botonSumar.addActionListener(gestor);
+		botonRestar.addActionListener(gestor);
+		botonDividir.addActionListener(gestor);
+		botonMultipli.addActionListener(gestor);
+		botonRaiz2.addActionListener(gestor);
+		botonRaiz3.addActionListener(gestor);
+		botonOff.addActionListener(gestor);
+		botonOn.addActionListener(gestor);
 	
 	}
 	
 	public void inicializarComplementos () {
 		
 		getContentPane().setBackground(Color.black);
+		
 		
 		cajaNum1 = new JTextField();
 		cajaNum1.setBounds(270, 85, 180, 20);
@@ -116,7 +126,33 @@ public class VentanaPrincipal extends JFrame {
         cajaResultado.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(210, 169, 57)));
 		add(cajaResultado);
 		
-		fondo = new JLabel(new ImageIcon("PimpBoy3Billion.jpg"));
+		botonOff = new JButton(new ImageIcon("off40.png"));
+		botonOff.setBounds(476, 375, 45, 80);
+		botonOff.setFont(new Font("Tw Cen MT Condensed Extra Bold", 1, 14));
+		botonOff.setForeground(Color.BLACK);
+		botonOff.setText("OFF");
+	    botonOff.setContentAreaFilled(false);
+	    botonOff.setHorizontalTextPosition(SwingConstants.CENTER);
+	    botonOff.setVerticalAlignment(SwingConstants.TOP);
+	    botonOff.setVerticalTextPosition(SwingConstants.TOP);
+	    botonOff.setBorder(null);
+	    botonOff.setFocusPainted(false);
+	    add(botonOff);
+	    
+	    botonOn = new JButton(new ImageIcon("on40.png"));
+	    botonOn.setBounds(368, 374, 45, 80);
+	    botonOn.setFont(new Font("Tw Cen MT Condensed Extra Bold", 1, 14));
+	    botonOn.setForeground(Color.BLACK);
+	    botonOn.setText("ON");
+	    botonOn.setContentAreaFilled(false);
+	    botonOn.setHorizontalTextPosition(SwingConstants.CENTER);
+	    botonOn.setVerticalAlignment(SwingConstants.TOP);
+	    botonOn.setVerticalTextPosition(SwingConstants.TOP);
+	    botonOn.setBorder(null);
+	    botonOn.setFocusPainted(false);
+	    add(botonOn);
+		
+		fondo = new JLabel(new ImageIcon("PimpBoy3BillionSin.jpg"));
 		fondo.setBounds(0, 0, 810, 530);
 		add(fondo);
 	
@@ -192,6 +228,30 @@ public class VentanaPrincipal extends JFrame {
 
 	public void setBotonRaiz3(JButton botonRaiz3) {
 		this.botonRaiz3 = botonRaiz3;
+	}
+
+	public JButton getBotonOff() {
+		return botonOff;
+	}
+
+	public void setBotonOff(JButton botonOff) {
+		this.botonOff = botonOff;
+	}
+
+	public JLabel getFondo() {
+		return fondo;
+	}
+
+	public void setFondo(JLabel fondo) {
+		this.fondo = fondo;
+	}
+
+	public JButton getBotonOn() {
+		return botonOn;
+	}
+
+	public void setBotonOn(JButton botonOn) {
+		this.botonOn = botonOn;
 	}
 
 	
