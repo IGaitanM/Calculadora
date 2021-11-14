@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,8 +23,6 @@ public class VentanaPrincipal extends JFrame {
 					botonRaiz2, botonRaiz3, botonOff, botonOn;
    
 
-  
-	
 	public VentanaPrincipal() {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +32,7 @@ public class VentanaPrincipal extends JFrame {
 		setTitle("Calculadora");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("fallout4logo.png"));
 		inicializarComplementos();
+		cajaNum1.requestFocus();
 		setVisible(true);
 	
 	}
@@ -53,14 +53,12 @@ public class VentanaPrincipal extends JFrame {
 		
 		getContentPane().setBackground(Color.black);
 		
-		
-		cajaNum1 = new JTextField();
+		cajaNum1 = new JFormattedTextField ();
 		cajaNum1.setBounds(270, 85, 180, 20);
 		cajaNum1.setBackground(new Color(47, 43, 27));
 		cajaNum1.setFont(new Font("Verdana", 1, 18));
 		cajaNum1.setForeground(new Color(210, 169, 57));
 		cajaNum1.setHorizontalAlignment(JTextField.CENTER);
-		cajaNum1.setText("NÚMERO1");
 		cajaNum1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(210, 169, 57)));
 		add(cajaNum1);
 		
@@ -70,7 +68,6 @@ public class VentanaPrincipal extends JFrame {
 		cajaNum2.setFont(new Font("Verdana", 1, 18));
 		cajaNum2.setForeground(new Color(210, 169, 57));
 		cajaNum2.setHorizontalAlignment(JTextField.CENTER);
-		cajaNum2.setText("NÚMERO2");
 		cajaNum2.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(210, 169, 57)));
 		add(cajaNum2);
 		
@@ -117,7 +114,7 @@ public class VentanaPrincipal extends JFrame {
 		add(botonRaiz3);
 		
 		cajaResultado = new JTextField();
-		cajaResultado.setBounds(370, 305, 150, 20);
+		cajaResultado.setBounds(295, 305, 300, 20);
 		cajaResultado.setBackground(new java.awt.Color(23, 18, 8));
         cajaResultado.setFont(new Font("Verdana", 1, 18));
         cajaResultado.setForeground(new Color(210, 169, 57));

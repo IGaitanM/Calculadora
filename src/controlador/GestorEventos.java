@@ -24,8 +24,8 @@ public class GestorEventos implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		double Caja1Parseada;
-		double Caja2Parseada;
+		double caja1Parseada;
+		double caja2Parseada;
 		
 		if (e.getSource() == ventana.getBotonOff()) {
 			
@@ -59,38 +59,44 @@ public class GestorEventos implements ActionListener {
 	
 		
 			if (e.getSource() == ventana.getBotonSumar()) {
-				Caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
-				Caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
-				double suma = Caja1Parseada + Caja2Parseada;
-				String sumaString = Double.toString(suma);
-				ventana.getCajaResultado().setText(sumaString);
+				if (verificarCajas()){
+					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+					caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
+					double suma = caja1Parseada + caja2Parseada;
+					String sumaString = Double.toString(suma);
+					ventana.getCajaResultado().setText(sumaString);
+				}
 				
 			}
 			
 			if (e.getSource() == ventana.getBotonRestar()) {
-				Caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
-				Caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
-				double resta = Caja1Parseada - Caja2Parseada;
-				String restaString = Double.toString(resta);
-				ventana.getCajaResultado().setText(restaString);
-				
+				if (verificarCajas()){
+					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+					caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
+					double resta = caja1Parseada - caja2Parseada;
+					String restaString = Double.toString(resta);
+					ventana.getCajaResultado().setText(restaString);
+				}
 			}
 			
 			if (e.getSource() == ventana.getBotonMultipli()) {
-				Caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
-				Caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
-				double multi = Caja1Parseada * Caja2Parseada;
-				String multiString = Double.toString(multi);
-				ventana.getCajaResultado().setText(multiString);
-				
+				if (verificarCajas()){
+					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+					caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
+					double multi = caja1Parseada * caja2Parseada;
+					String multiString = Double.toString(multi);
+					ventana.getCajaResultado().setText(multiString);
+				}	
 			}
 			
 			if (e.getSource() == ventana.getBotonDividir()) {
-				Caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
-				Caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
-				double divi = Caja1Parseada / Caja2Parseada;
-				String diviString = Double.toString(divi);
-				ventana.getCajaResultado().setText(diviString);
+				if (verificarCajas()){
+					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+					caja2Parseada= Double.parseDouble(ventana.getCajaNum2().getText());
+					double divi = caja1Parseada / caja2Parseada;
+					String diviString = Double.toString(divi);
+					ventana.getCajaResultado().setText(diviString);
+				}	
 			}
 			
 			if (e.getSource() == ventana.getBotonRaiz2()) {
@@ -106,6 +112,13 @@ public class GestorEventos implements ActionListener {
 				GestorEventos2 gestor2 = new GestorEventos2(ventana2);
 				ventana2.establecerGestor(gestor2);
 				ventana2.setVisible(true);
+				
+
+					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+					double raizCubica = Math.cbrt(caja1Parseada);
+					String raizCubicaString = Double.toString(raizCubica);
+					ventana.getCajaResultado().setText(raizCubicaString);
+
 					
 			}
 			
@@ -113,15 +126,13 @@ public class GestorEventos implements ActionListener {
 	
 	
 		public boolean verificarCajas() {
-			boolean resultado=true;
-			if (ventana.getCajaNum1().getText()!="" && ventana.getCajaNum2().getText()!="" ) {
+			boolean resultado=false;
+			if (!ventana.getCajaNum1().getText().equals("") && !ventana.getCajaNum2().getText().equals("")) {
 				if (comprobarParseo(ventana.getCajaNum1().getText()) && comprobarParseo(ventana.getCajaNum2().getText()) ) 
 					resultado=true;
 				else {
-					
 					resultado=false;
 				}
-			
 			}
 	
 			return resultado;
@@ -132,8 +143,14 @@ public class GestorEventos implements ActionListener {
 				Double.parseDouble(cajaTexto);
 				return true;
 			} catch (NumberFormatException nfe){
-				System.out.println("Por favor inserte solo números");
+				UIManager.put("OptionPane.background", new Color(210,169,57));
+				UIManager.put("Panel.background", new Color(210,169,57));
+				UIManager.put("Font.foreground", new Color(210,169,57));
+				JOptionPane.showMessageDialog(null, "Inserte números por favor", "Aviso", 
+											JOptionPane.ERROR_MESSAGE, new ImageIcon("errorNumeros.png"));
 				return false;
 			}
 		}
+		
+		
 }

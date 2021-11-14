@@ -22,6 +22,7 @@ public class VentanaContraseña extends JDialog{
 	private JButton botonAceptar;
 	private JPasswordField contraseña;
 	private JLabel texto, imagen1;
+	private String contraseñaMaestra;
 
 	
 	public VentanaContraseña() {
@@ -103,6 +104,14 @@ public class VentanaContraseña extends JDialog{
 
 	public JPanel getPanel() {
 		return panel;
+	}
+
+	public String getContraseñaMaestra() {
+		return contraseñaMaestra;
+	}
+
+	public void setContraseñaMaestra(String contraseñaMaestra) {
+		this.contraseñaMaestra = contraseñaMaestra;
 	}
 	
 	
