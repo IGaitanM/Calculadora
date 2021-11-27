@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -27,9 +28,14 @@ public class GestorEventos implements ActionListener {
 		double caja1Parseada;
 		double caja2Parseada;
 		
+		// Acciones al pulsar el botón de apagar OFF
+		
 		if (e.getSource() == ventana.getBotonOff()) {
 			
 			ventana.getFondo().setIcon(new ImageIcon("PimpBoy3BillionOFF.jpg"));
+			ventana.getNum1().setVisible(false);
+			ventana.getNum2().setVisible(false);
+			ventana.getBotonSumar().setVisible(false);
 			ventana.getBotonSumar().setVisible(false);
 			ventana.getBotonRestar().setVisible(false);
 			ventana.getBotonMultipli().setVisible(false);
@@ -41,9 +47,14 @@ public class GestorEventos implements ActionListener {
 			ventana.getCajaResultado().setVisible(false);
 			
 		}
+		
+		// Acciones al pulsar el botón de encender ON
+		
 		if (e.getSource() == ventana.getBotonOn()) {
 			
-			ventana.getFondo().setIcon(new ImageIcon("PimpBoy3BillionSin.jpg"));
+			ventana.getFondo().setIcon(new ImageIcon("PimpBoy3BillionSin2.jpg"));
+			ventana.getNum1().setVisible(true);
+			ventana.getNum2().setVisible(true);
 			ventana.getBotonSumar().setVisible(true);
 			ventana.getBotonRestar().setVisible(true);
 			ventana.getBotonMultipli().setVisible(true);
@@ -57,6 +68,7 @@ public class GestorEventos implements ActionListener {
 		}
 		
 	
+		// Acciones al pulsar el botón SUMAR
 		
 			if (e.getSource() == ventana.getBotonSumar()) {
 				if (verificarCajas()){
@@ -65,9 +77,12 @@ public class GestorEventos implements ActionListener {
 					double suma = caja1Parseada + caja2Parseada;
 					String sumaString = Double.toString(suma);
 					ventana.getCajaResultado().setText(sumaString);
+					ventana.getCajaNum1().requestFocus();
 				}
 				
 			}
+			
+			// Acciones al pulsar el botón RESTAR
 			
 			if (e.getSource() == ventana.getBotonRestar()) {
 				if (verificarCajas()){
@@ -76,8 +91,11 @@ public class GestorEventos implements ActionListener {
 					double resta = caja1Parseada - caja2Parseada;
 					String restaString = Double.toString(resta);
 					ventana.getCajaResultado().setText(restaString);
+					ventana.getCajaNum1().requestFocus();
 				}
 			}
+			
+			// Acciones al pulsar el botón MULIPLICAR
 			
 			if (e.getSource() == ventana.getBotonMultipli()) {
 				if (verificarCajas()){
@@ -89,6 +107,8 @@ public class GestorEventos implements ActionListener {
 				}	
 			}
 			
+			// Acciones al pulsar el botón DIVIDIR 
+			
 			if (e.getSource() == ventana.getBotonDividir()) {
 				if (verificarCajas()){
 					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
@@ -96,8 +116,11 @@ public class GestorEventos implements ActionListener {
 					double divi = caja1Parseada / caja2Parseada;
 					String diviString = Double.toString(divi);
 					ventana.getCajaResultado().setText(diviString);
+					ventana.getCajaNum1().requestFocus();
 				}	
 			}
+			
+			// Acciones al pulsar el botón RAIZ2
 			
 			if (e.getSource() == ventana.getBotonRaiz2()) {
 				UIManager.put("OptionPane.background", new Color(210,169,57));
@@ -106,28 +129,33 @@ public class GestorEventos implements ActionListener {
 				
 				JOptionPane.showMessageDialog(null, "Funcionalidad no disponible", "En construcción", 
 											JOptionPane.ERROR_MESSAGE, new ImageIcon("noDisponible2.png"));
+				ventana.getCajaNum1().requestFocus();
 			}
+			
+			// Acciones al pulsar el botón RAIZ3
+			
 			if (e.getSource() == ventana.getBotonRaiz3()) {
 				VentanaContraseña ventana2 = new VentanaContraseña();
 				GestorEventos2 gestor2 = new GestorEventos2(ventana2);
-				ventana2.establecerGestor(gestor2);
+				ventana2.establecerGestor(gestor2);     
 				ventana2.setVisible(true);
 				
-
-					caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
-					double raizCubica = Math.cbrt(caja1Parseada);
-					String raizCubicaString = Double.toString(raizCubica);
-					ventana.getCajaResultado().setText(raizCubicaString);
-
-					
+				if (!ventana.getCajaNum1().getText().isEmpty()) {
+						caja1Parseada= Double.parseDouble(ventana.getCajaNum1().getText());
+						double raizCubica = Math.cbrt(caja1Parseada);
+						DecimalFormat formato1 = new DecimalFormat("#.0000");
+						String raizCubicaString = (formato1.format(raizCubica));
+						ventana.getCajaResultado().setText(raizCubicaString);	
+						ventana.getCajaNum1().requestFocus();
+				}
 			}
-			
-		}	
-	
+				
+		}
+					
 	
 		public boolean verificarCajas() {
 			boolean resultado=false;
-			if (!ventana.getCajaNum1().getText().equals("") && !ventana.getCajaNum2().getText().equals("")) {
+			if (!ventana.getCajaNum1().getText().isEmpty() && !ventana.getCajaNum2().getText().isEmpty()) {
 				if (comprobarParseo(ventana.getCajaNum1().getText()) && comprobarParseo(ventana.getCajaNum2().getText()) ) 
 					resultado=true;
 				else {

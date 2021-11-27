@@ -34,7 +34,6 @@ public class VentanaContraseña extends JDialog{
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		inicializarComponentes();
-	
 	}
 	
 	public void inicializarComponentes() {
@@ -61,6 +60,7 @@ public class VentanaContraseña extends JDialog{
 		
 		contraseña = new JPasswordField();
 		contraseña.setBounds(10, 101, 156, 20);
+		contraseña.requestFocus();
 		panel.add(contraseña);
 		
 		

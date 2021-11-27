@@ -17,7 +17,7 @@ import controlador.GestorEventos;
 
 public class VentanaPrincipal extends JFrame {
 	
-	private JLabel fondo;
+	private JLabel fondo, Num1, Num2;
 	private JTextField cajaNum1, cajaNum2, cajaResultado;
 	private JButton botonSumar, botonRestar, botonMultipli, botonDividir,
 					botonRaiz2, botonRaiz3, botonOff, botonOn;
@@ -30,7 +30,7 @@ public class VentanaPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setTitle("Calculadora");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("fallout4logo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("fallout-4-icon.png"));
 		inicializarComplementos();
 		cajaNum1.requestFocus();
 		setVisible(true);
@@ -53,8 +53,26 @@ public class VentanaPrincipal extends JFrame {
 		
 		getContentPane().setBackground(Color.black);
 		
+		Num1 = new JLabel ();
+		Num1.setBounds(272, 85, 80, 20);
+		Num1.setBackground(new java.awt.Color(23, 18, 8));
+		Num1.setFont(new Font("Verdana", 1, 14));
+		Num1.setForeground(new Color(210, 169, 57));
+		Num1.setText("Número1");
+		Num1.setBorder(null);
+		add(Num1);
+		
+		Num2 = new JLabel ();
+		Num2.setBounds(550, 85, 80, 20);
+		Num2.setBackground(new java.awt.Color(23, 18, 8));
+		Num2.setFont(new Font("Verdana", 1, 14));
+		Num2.setForeground(new Color(210, 169, 57));
+		Num2.setText("Número2");
+		Num2.setBorder(null);
+		add(Num2);
+		
 		cajaNum1 = new JFormattedTextField ();
-		cajaNum1.setBounds(270, 85, 180, 20);
+		cajaNum1.setBounds(346, 85, 100, 20);
 		cajaNum1.setBackground(new Color(47, 43, 27));
 		cajaNum1.setFont(new Font("Verdana", 1, 18));
 		cajaNum1.setForeground(new Color(210, 169, 57));
@@ -63,7 +81,7 @@ public class VentanaPrincipal extends JFrame {
 		add(cajaNum1);
 		
 		cajaNum2 = new JTextField();
-		cajaNum2.setBounds(450, 85, 180, 20);
+		cajaNum2.setBounds(446, 85, 100, 20);
 		cajaNum2.setBackground(new Color(47, 43, 27));
 		cajaNum2.setFont(new Font("Verdana", 1, 18));
 		cajaNum2.setForeground(new Color(210, 169, 57));
@@ -114,7 +132,7 @@ public class VentanaPrincipal extends JFrame {
 		add(botonRaiz3);
 		
 		cajaResultado = new JTextField();
-		cajaResultado.setBounds(295, 305, 300, 20);
+		cajaResultado.setBounds(345, 305, 200, 20);
 		cajaResultado.setBackground(new java.awt.Color(23, 18, 8));
         cajaResultado.setFont(new Font("Verdana", 1, 18));
         cajaResultado.setForeground(new Color(210, 169, 57));
@@ -149,7 +167,7 @@ public class VentanaPrincipal extends JFrame {
 	    botonOn.setFocusPainted(false);
 	    add(botonOn);
 		
-		fondo = new JLabel(new ImageIcon("PimpBoy3BillionSin.jpg"));
+		fondo = new JLabel(new ImageIcon("PimpBoy3BillionSin2.jpg"));
 		fondo.setBounds(0, 0, 810, 530);
 		add(fondo);
 	
@@ -250,6 +268,23 @@ public class VentanaPrincipal extends JFrame {
 	public void setBotonOn(JButton botonOn) {
 		this.botonOn = botonOn;
 	}
+
+	public JLabel getNum1() {
+		return Num1;
+	}
+
+	public void setNum1(JLabel num1) {
+		Num1 = num1;
+	}
+
+	public JLabel getNum2() {
+		return Num2;
+	}
+
+	public void setNum2(JLabel num2) {
+		Num2 = num2;
+	}
+	
 
 	
 }
