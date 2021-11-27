@@ -1,13 +1,11 @@
 package controlador;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -32,7 +30,7 @@ public class GestorEventos implements ActionListener {
 		
 		if (e.getSource() == ventana.getBotonOff()) {
 			
-			ventana.getFondo().setIcon(new ImageIcon("PimpBoy3BillionOFF.jpg"));
+			ventana.getFondo().setIcon(new ImageIcon("src/img/PimpBoy3BillionOFF.jpg"));
 			ventana.getNum1().setVisible(false);
 			ventana.getNum2().setVisible(false);
 			ventana.getBotonSumar().setVisible(false);
@@ -52,7 +50,7 @@ public class GestorEventos implements ActionListener {
 		
 		if (e.getSource() == ventana.getBotonOn()) {
 			
-			ventana.getFondo().setIcon(new ImageIcon("PimpBoy3BillionSin2.jpg"));
+			ventana.getFondo().setIcon(new ImageIcon("src/img/PimpBoy3BillionSin2.jpg"));
 			ventana.getNum1().setVisible(true);
 			ventana.getNum2().setVisible(true);
 			ventana.getBotonSumar().setVisible(true);
@@ -128,7 +126,7 @@ public class GestorEventos implements ActionListener {
 				UIManager.put("Font.foreground", new Color(210,169,57));
 				
 				JOptionPane.showMessageDialog(null, "Funcionalidad no disponible", "En construcción", 
-											JOptionPane.ERROR_MESSAGE, new ImageIcon("noDisponible2.png"));
+											JOptionPane.ERROR_MESSAGE, new ImageIcon("src/img/noDisponible2.png"));
 				ventana.getCajaNum1().requestFocus();
 			}
 			
@@ -175,7 +173,7 @@ public class GestorEventos implements ActionListener {
 				UIManager.put("Panel.background", new Color(210,169,57));
 				UIManager.put("Font.foreground", new Color(210,169,57));
 				JOptionPane.showMessageDialog(null, "Inserte números por favor", "Aviso", 
-											JOptionPane.ERROR_MESSAGE, new ImageIcon("errorNumeros.png"));
+											JOptionPane.ERROR_MESSAGE, new ImageIcon("src/img/errorNumeros.png"));
 				return false;
 			}
 		}

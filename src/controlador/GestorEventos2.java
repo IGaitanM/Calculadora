@@ -22,16 +22,14 @@ public class GestorEventos2 implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		double Caja1Parseada;
-		double Caja2Parseada;
 		
 		if (!validarContraseña()) {
 			UIManager.put("OptionPane.background", new Color(210,169,57));
 			UIManager.put("Panel.background", new Color(210,169,57));
 			UIManager.put("Font.foreground", new Color(210,169,57));
-			ventana2.getImagen1().setIcon(new ImageIcon("seta.png"));
+			ventana2.getImagen1().setIcon(new ImageIcon("src/img/seta.png"));
 			JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "ERROR", 
-										JOptionPane.ERROR_MESSAGE, new ImageIcon("radiaccion.png"));
+										JOptionPane.ERROR_MESSAGE, new ImageIcon("src/img/radiaccion.png"));
 		}
 		else {
 			ventana2.dispose();

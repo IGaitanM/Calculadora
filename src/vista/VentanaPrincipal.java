@@ -17,6 +17,10 @@ import controlador.GestorEventos;
 
 public class VentanaPrincipal extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel fondo, Num1, Num2;
 	private JTextField cajaNum1, cajaNum2, cajaResultado;
 	private JButton botonSumar, botonRestar, botonMultipli, botonDividir,
@@ -30,7 +34,7 @@ public class VentanaPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setTitle("Calculadora");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("fallout-4-icon.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/img/fallout-4-icon.png"));
 		inicializarComplementos();
 		cajaNum1.requestFocus();
 		setVisible(true);
@@ -141,7 +145,7 @@ public class VentanaPrincipal extends JFrame {
         cajaResultado.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(210, 169, 57)));
 		add(cajaResultado);
 		
-		botonOff = new JButton(new ImageIcon("off40.png"));
+		botonOff = new JButton(new ImageIcon("src/img/off40.png"));
 		botonOff.setBounds(476, 375, 45, 80);
 		botonOff.setFont(new Font("Tw Cen MT Condensed Extra Bold", 1, 14));
 		botonOff.setForeground(Color.BLACK);
@@ -154,7 +158,7 @@ public class VentanaPrincipal extends JFrame {
 	    botonOff.setFocusPainted(false);
 	    add(botonOff);
 	    
-	    botonOn = new JButton(new ImageIcon("on40.png"));
+	    botonOn = new JButton(new ImageIcon("src/img/on40.png"));
 	    botonOn.setBounds(368, 374, 45, 80);
 	    botonOn.setFont(new Font("Tw Cen MT Condensed Extra Bold", 1, 14));
 	    botonOn.setForeground(Color.BLACK);
@@ -167,7 +171,7 @@ public class VentanaPrincipal extends JFrame {
 	    botonOn.setFocusPainted(false);
 	    add(botonOn);
 		
-		fondo = new JLabel(new ImageIcon("PimpBoy3BillionSin2.jpg"));
+		fondo = new JLabel(new ImageIcon("src/img/PimpBoy3BillionSin2.jpg"));
 		fondo.setBounds(0, 0, 810, 530);
 		add(fondo);
 	

@@ -18,6 +18,10 @@ import controlador.GestorEventos2;
 
 public class VentanaContraseña extends JDialog{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel panel = new JPanel();
 	private JButton botonAceptar;
 	private JPasswordField contraseña;
@@ -48,7 +52,7 @@ public class VentanaContraseña extends JDialog{
 		panel.add(botonAceptar);
 		
 		imagen1 = new JLabel("");
-		imagen1.setIcon(new ImageIcon("password.png"));
+		imagen1.setIcon(new ImageIcon("src/img/password.png"));
 		imagen1.setBounds(168, 0, 176, 223);
 		panel.add(imagen1);
 		
