@@ -31,12 +31,13 @@ public class VentanaContraseña extends JDialog{
 	
 	public VentanaContraseña() {
 		
-		setBounds(645, 260, 390, 283);
+		setBounds(650, 260, 380, 273);
 		getContentPane().setLayout(new BorderLayout());
 		panel.setBackground(new Color(8, 4, 1));
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
+		setUndecorated(true);
 		inicializarComponentes();
 	}
 	
