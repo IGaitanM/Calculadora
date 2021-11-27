@@ -7,7 +7,6 @@
 Hacer una calculadora básica que realice las operaciones de sumar, restar,
 multiplicar, dividir dos números, raiz cuadrada y cúbica con funcionalidad.
 
-
 Aspectos a tener en cuenta: 
  
 - Es fundamental que durante la ejecuciónn de la aplicación  no se produzcan excepciones  ni 
